@@ -2,7 +2,6 @@
   "name": "vue-promise-button",
   "description": "A promise button for vuejs",
   "version": "0.1.0",
-  "private": true,
   "main": "./dist/vue-promise-button.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -54,5 +53,16 @@
     "ts-jest": "^23.0.0",
     "typescript": "^3.4.3",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mihnsen/vue-promise-button.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mihnsen/vue-promise-button/issues"
+  },
+  "homepage": "https://github.com/mihnsen/vue-promise-button#readme"
 }

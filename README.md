@@ -1,6 +1,52 @@
 # promise-button
 
-## Project setup
+## Installation
+```
+npm install vue-promise-button
+or
+yarn add vue-promise-button
+```
+
+## Usage
+```
+import PromiseButton from 'vue-promise-button';
+
+// Set global if you want
+Vue.component('promise-button', PromiseButton);
+
+// Use it
+<promise-button class="button" :promise="promise">
+I'm a promise button
+</promise-button>
+```
+
+Setup your promise function as a promise like this.
+```
+export default {
+  methods: {
+    promise() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(true)
+        }, 2000)
+      })
+    }
+  }
+}
+```
+
+With axios and api
+```
+export default {
+  methods: {
+    promise() {
+      return axios.get('/users/1234')
+    }
+  }
+}
+```
+
+## Development
 ```
 yarn install
 ```
