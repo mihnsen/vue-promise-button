@@ -69,6 +69,8 @@ export default class PromiseButton extends Vue {
 
 .promise-button
   display: inline-flex
+  align-items: center
+  justify-content: center
 
 .promise-button-spinner
   @extend .spinner-border

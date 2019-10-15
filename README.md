@@ -11,6 +11,9 @@ yarn add vue-promise-button
 ```
 import PromiseButton from 'vue-promise-button';
 
+// For typescript users
+import PromiseButton from 'vue-promise-button/src/components/PromiseButton.vue'
+
 // Set global if you want
 Vue.component('promise-button', PromiseButton);
 
