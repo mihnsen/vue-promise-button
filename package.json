@@ -1,7 +1,7 @@
 {
   "name": "vue-promise-button",
   "description": "A promise button for vuejs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./dist/vue-promise-button.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -24,13 +24,13 @@
   "license": "MIT",
   "author": "mihnsen <minhnt.hut@gmail.com> (https://github.com/mihnsen/)",
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10",
-    "vue-class-component": "^7.0.2",
-    "vue-property-decorator": "^8.1.0"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
+    "bootstrap": "^4.3.1",
+    "core-js": "^2.6.5",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.1.0",
     "@types/jest": "^23.1.4",
     "@typescript-eslint/eslint-plugin": "^2.3.1-alpha.1",
     "@typescript-eslint/parser": "^2.3.0",

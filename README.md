@@ -1,4 +1,4 @@
-# promise-button
+# vue-promise-button
 
 ## Installation
 ```
