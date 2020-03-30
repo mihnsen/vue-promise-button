@@ -79,4 +79,6 @@ export default class PromiseButton extends Vue {
   border-width: .15em
   margin-left: .5em
 
+  .promise-button--notext &
+    margin-left: 0
 </style>

@@ -1,7 +1,7 @@
 {
   "name": "vue-promise-button",
   "description": "A promise button for vuejs, handles buttons asynchronous lock and show loading state indicator",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "./dist/vue-promise-button.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
