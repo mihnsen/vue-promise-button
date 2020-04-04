@@ -34,7 +34,7 @@ export default class PromiseButton extends Vue {
   * get computed of show text or not
   */
   get isShowText() {
-    if (this.isProcessing) {
+    if (this.isProcessing || this.forceProcessing) {
       return !this.autoHide;
     }
 
