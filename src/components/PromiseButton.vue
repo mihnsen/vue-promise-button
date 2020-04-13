@@ -2,6 +2,7 @@
 button.promise-button(
   type="button",
   @click.stop="handle",
+  :disabled="disabled",
   :class="{ 'promise-button--notext': !isShowText }"
 )
   span(v-if="isShowText")
@@ -24,6 +25,9 @@ export default class PromiseButton extends Vue {
 
   @Prop({ type: Boolean, default: false })
   autoHide!: boolean
+
+  @Prop({ type: Boolean, default: false })
+  disabled!: boolean
 
   @Prop({ type: Boolean, default: false })
   forceProcessing!: boolean
