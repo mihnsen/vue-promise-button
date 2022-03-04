@@ -1,83 +1,52 @@
-# vue-promise-button
+# example-library
 
-## Installation
-```
-npm install vue-promise-button
-or
-yarn add vue-promise-button
-```
+This template should help get you started developing with Vue 3 in Vite.
 
-## Usage
-```
-import PromiseButton from 'vue-promise-button';
+## Recommended IDE Setup
 
-// For typescript users
-import PromiseButton from 'vue-promise-button/src/components/PromiseButton.vue'
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
 
-// Set global if you want
-Vue.component('promise-button', PromiseButton);
+## Type Support for `.vue` Imports in TS
 
-// Use it
-<promise-button class="button" :promise="promise">
-I'm a promise button
-</promise-button>
-```
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-Setup your promise function as a promise like this.
-```
-export default {
-  methods: {
-    promise() {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve(true)
-        }, 2000)
-      })
-    }
-  }
-}
+If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+
+1. Disable the built-in TypeScript Extension
+    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+## Project Setup
+
+```sh
+npm install
 ```
 
-With axios and api
-```
-export default {
-  methods: {
-    promise() {
-      return axios.get('/users/1234')
-    }
-  }
-}
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
 ```
 
-## Development
-```
-yarn install
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+### Lint with [ESLint](https://eslint.org/)
 
-### Run your tests
+```sh
+npm run lint
 ```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Run your unit tests
-```
-yarn run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

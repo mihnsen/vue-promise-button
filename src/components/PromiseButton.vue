@@ -13,63 +13,68 @@ button.promise-button(
       v-show="isProcessing || forceProcessing",
       role="status",
     )
-      span.sr-only Loading...
+      span.promise-button-visually-hidden Loading...
 </template>
-<script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+<script setup lang="ts">
+import { ref, computed } from 'vue'
 
-@Component
-export default class PromiseButton extends Vue {
-  @Prop({ type: Function, required: true })
-  promise!: Function
+const props = defineProps<{
+  promise: {
+    type: Function,
+    required: true
+  },
+  autoHide?: {
+    type: Boolean,
+    default: false
+  },
+  disabled?: {
+    type: Boolean,
+    default: false
+  },
+  forceProcessing?: {
+    type: Boolean,
+    default: false
+  }
+}>()
 
-  @Prop({ type: Boolean, default: false })
-  autoHide!: boolean
+const isProcessing = ref(false)
 
-  @Prop({ type: Boolean, default: false })
-  disabled!: boolean
-
-  @Prop({ type: Boolean, default: false })
-  forceProcessing!: boolean
-
-  isProcessing: boolean = false;
-
-  /**
-  * get computed of show text or not
-  */
-  get isShowText() {
-    if (this.isProcessing || this.forceProcessing) {
-      return !this.autoHide;
-    }
-
-    return true;
+const isShowText = computed(() => {
+  if (isProcessing.value || props.forceProcessing) {
+    return !props.autoHide;
   }
 
-  /**
-  * main handle function
-  */
-  handle() {
-    if (!this.isProcessing) {
-      this.isProcessing = true;
-      this.promise()
-        .catch((e: Error) => { // eslint-disable-line
-          this.isProcessing = false;
-          throw e;
-        })
-        .then(() => {
-          this.isProcessing = false;
-        });
-    }
+  return true;
+})
+
+/**
+* main handle function
+*/
+const handle = () => {
+  if (!isProcessing.value) {
+    isProcessing.value = true;
+    props.promise()
+      .catch((e: Error) => { // eslint-disable-line
+        isProcessing.value = false;
+        throw e;
+      })
+      .finally(() => {
+        isProcessing.value = false;
+      });
   }
-};
+}
+
+// defineExpose({
+//   handle
+// })
 </script>
 <style lang="sass">
-@import '~bootstrap/scss/functions'
-@import '~bootstrap/scss/variables'
-@import '~bootstrap/scss/mixins'
+@import 'bootstrap/scss/functions'
+@import 'bootstrap/scss/variables'
+@import 'bootstrap/scss/mixins'
 
-@import '~bootstrap/scss/utilities/screenreaders'
-@import '~bootstrap/scss/spinners'
+// @import 'bootstrap/scss/utilities/screenreaders'
+@import 'bootstrap/scss/spinners'
 
 .promise-button
   display: inline-flex
@@ -85,4 +90,7 @@ export default class PromiseButton extends Vue {
 
   .promise-button--notext &
     margin-left: 0
+
+.promise-button-visually-hidden
+  @include visually-hidden()
 </style>

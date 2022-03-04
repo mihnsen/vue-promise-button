@@ -1,68 +1,40 @@
-<template>
-  <div class="hello">
-    <h2>{{ msg }}</h2>
+<script setup lang="ts">
+defineProps<{
+  msg: string
+}>()
+</script>
 
-    <div style="margin-bottom: 20px">
-      <PromiseButton class="btn" :promise="fakePromise">Success promise</PromiseButton>
-    </div>
-    <div>
-      <PromiseButton class="btn" :promise="failurePromise">Failure promise</PromiseButton>
-    </div>
+<template>
+  <div class="greetings">
+    <h1 class="green">{{ msg }}</h1>
+    <h3>
+      You’ve successfully created a project with
+      <a target="_blank" href="https://vitejs.dev/">Vite</a> +
+      <a target="_blank" href="https://vuejs.org/">Vue 3</a>.
+    </h3>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
-import PromiseButton from './PromiseButton.vue'
-
-@Component({
-  components: {
-    PromiseButton,
-  }
-})
-export default class HelloWorld extends Vue {
-
-  @Prop() private msg!: string;
-
-  fakePromise() {
-    return new Promise((resolve: any, reject: any) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 2000);
-    });
-  }
-
-  failurePromise() {
-    return new Promise((resolve: any, reject: any) => {
-      setTimeout(() => {
-        reject(new Error('This promise failure'));
-      }, 2000);
-    });
-  }
+<style scoped>
+h1 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  top: -10px;
 }
-</script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
 h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+  font-size: 1.2rem;
 }
 
-.btn {
-  padding: 5px 15px;
-  background: rgba(0, 0, 0, .05);
-  border: 1px solid rgba(0, 0, 0, 1);
-  outline: none;
+.greetings h1,
+.greetings h3 {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .greetings h1,
+  .greetings h3 {
+    text-align: left;
+  }
 }
 </style>
