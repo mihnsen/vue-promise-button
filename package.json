@@ -1,6 +1,6 @@
 {
   "name": "vue-promise-button",
-  "version": "next",
+  "version": "1.0.0-alpha.1",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
