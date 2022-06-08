@@ -13,6 +13,7 @@ const handleClick = () => {
 </script>
 
 <template>
+  <div>
   <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
@@ -26,6 +27,7 @@ const handleClick = () => {
       :promise="handleClick"
     > Click me! </PromiseButton>
   </main>
+</div>
 </template>
 
 <style>
