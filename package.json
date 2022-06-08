@@ -1,6 +1,6 @@
 {
-  "name": "example-library",
-  "version": "0.0.0",
+  "name": "vue-promise-button",
+  "version": "next",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
