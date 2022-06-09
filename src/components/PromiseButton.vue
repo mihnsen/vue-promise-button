@@ -18,24 +18,18 @@ button.promise-button(
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-const props = defineProps<{
-  promise: {
-    type: Function,
-    required: true
-  },
-  autoHide?: {
-    type: Boolean,
-    default: false
-  },
-  disabled?: {
-    type: Boolean,
-    default: false
-  },
-  forceProcessing?: {
-    type: Boolean,
-    default: false
-  }
-}>()
+interface Props {
+  promise: any;
+  autoHide?: boolean;
+  disabled?: boolean;
+  forceProcessing?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  autoHide: false,
+  disabled: false,
+  forceProcessing: false
+})
 
 const isProcessing = ref(false)
 
